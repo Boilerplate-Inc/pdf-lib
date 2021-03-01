@@ -492,16 +492,6 @@ export default class PDFOptionList extends PDFField {
    * @returns Whether or not this option list needs an appearance update.
    */
   needsAppearancesUpdate(): boolean {
-    if (this.isDirty()) return true;
-
-    const widgets = this.acroField.getWidgets();
-    for (let idx = 0, len = widgets.length; idx < len; idx++) {
-      const widget = widgets[idx];
-      const hasAppearances =
-        widget.getAppearances()?.normal instanceof PDFStream;
-      if (!hasAppearances) return true;
-    }
-
     return false;
   }
 

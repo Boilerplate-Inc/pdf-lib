@@ -398,16 +398,6 @@ export default class PDFRadioGroup extends PDFField {
    * @returns Whether or not this radio group needs an appearance update.
    */
   needsAppearancesUpdate(): boolean {
-    const widgets = this.acroField.getWidgets();
-    for (let idx = 0, len = widgets.length; idx < len; idx++) {
-      const widget = widgets[idx];
-      const state = widget.getAppearanceState();
-      const normal = widget.getAppearances()?.normal;
-
-      if (!(normal instanceof PDFDict)) return true;
-      if (state && !normal.has(state)) return true;
-    }
-
     return false;
   }
 
